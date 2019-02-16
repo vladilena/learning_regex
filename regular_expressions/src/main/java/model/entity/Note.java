@@ -1,6 +1,10 @@
 package model.entity;
 
+import sun.util.calendar.LocalGregorianCalendar;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+
 
 public class Note {
     private String firstName;
@@ -11,9 +15,10 @@ public class Note {
     private String secondMobilePhoneNumber;
     private String email;
     private String skype;
-//    private ArrayList <String> address;
+    private LocalDateTime creationDate;
+    private ArrayList<String> address;
 
-    public Note(String firstName, String login, String comment, String homePhoneNumber, String mobilePhoneNumber, String secondMobilePhoneNumber, String email, String skype) {
+    public Note(String firstName, String login, String comment, String homePhoneNumber, String mobilePhoneNumber, String secondMobilePhoneNumber, String email, String skype, ArrayList<String> address, LocalDateTime creationDate) {
         this.firstName = firstName;
         this.login = login;
         this.comment = comment;
@@ -22,7 +27,8 @@ public class Note {
         this.secondMobilePhoneNumber = secondMobilePhoneNumber;
         this.email = email;
         this.skype = skype;
-//        this.adress = adress;
+        this.address = address;
+        this.creationDate = creationDate;
     }
 
     public String getFirstName() {
@@ -73,6 +79,14 @@ public class Note {
         this.secondMobilePhoneNumber = secondMobilePhoneNumber;
     }
 
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -89,24 +103,27 @@ public class Note {
         skype = skype;
     }
 
-//    public ArrayList<String> getAdress() {
-//        return adress;
-//    }
-//
-//    public void setAdress(ArrayList<String> adress) {
-//        this.adress = adress;
-//    }
+    public ArrayList<String> getAddress() {
+        return address;
+    }
+
+    public void setAddress(ArrayList<String> adress) {
+        this.address = address;
+    }
 
     @Override
     public String toString() {
-        return "Note{" +
-                "firstName='" + firstName + '\'' +
-                ", login='" + login + '\'' +
-                ", comment='" + comment + '\'' +
-                ", homePhoneNumber='" + homePhoneNumber + '\'' +
-                ", mobilePhoneNumber='" + mobilePhoneNumber + '\'' +
-                ", secondMobilePhoneNumber='" + secondMobilePhoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", Skype='" + skype;
+        return "Your login form is ( " +
+                "\nfirstName: " + firstName + "; " +
+                "\nlogin: " + login + "; " +
+                "\ncomment: " + comment + "; " +
+                "\nhomePhoneNumber: " + homePhoneNumber + "; " +
+                "\nmobilePhoneNumber: " + mobilePhoneNumber + "; " +
+                "\nsecondMobilePhoneNumber: " + secondMobilePhoneNumber + "; " +
+                "\nemail: " + email + "; " +
+                "\nskype: " + skype + "; " +
+                "\ncreationDate: " + creationDate +
+                "\naddress: " + address +
+                ")";
     }
 }

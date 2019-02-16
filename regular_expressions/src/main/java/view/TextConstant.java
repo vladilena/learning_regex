@@ -13,5 +13,10 @@ public interface TextConstant {
     String SECOND_MOBILE_PHONE_DATA = "input.second.mobile.phone.data";
     String SKYPE_DATA = "input.skype.data";
     String EMAIL_DATA = "input.email.data";
+    String INDEX_DATA = "input.index.data";
+    String CITY_DATA = "input.city.data";
+    String STREET_DATA = "input.street.data";
+    String BUILDING_DATA = "input.building.data";
+    String APARTMENT_DATA = "input.apartment.data";
 }
 

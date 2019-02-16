@@ -1,7 +1,9 @@
 package controller;
 
+
 import view.View;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +11,7 @@ import static controller.RegexContainer.*;
 import static view.TextConstant.*;
 
 
-public class InputNoteNoteBook {
+class InputNoteNoteBook {
     private Scanner sc;
     private View view;
 
@@ -21,9 +23,10 @@ public class InputNoteNoteBook {
     private String secondMobilePhoneNumber;
     private String email;
     private String skype;
-//    private ArrayList<String> adress;
+    private ArrayList<String> address;
+    private LocalDateTime creationDate;
 
-    public InputNoteNoteBook(Scanner sc, View view) {
+    InputNoteNoteBook(Scanner sc, View view) {
         this.sc = sc;
         this.view = view;
     }
@@ -45,46 +48,66 @@ public class InputNoteNoteBook {
         this.secondMobilePhoneNumber = contr.inputStringValueWithScanner(SECOND_MOBILE_PHONE_DATA, REGEX_PHONE_NUMBER);
         this.email = contr.inputStringValueWithScanner(EMAIL_DATA, REGEX_EMAIL);
         this.skype = contr.inputStringValueWithScanner(SKYPE_DATA, REGEX_SKYPE);
+        this.address = inputAddress(contr);
+        this.creationDate = creationDate.now();
 
     }
 
-    public Scanner getSc() {
+    private ArrayList<String> inputAddress(UtilityController contr) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add(contr.inputStringValueWithScanner(INDEX_DATA, REGEX_INDEX));
+        list.add(contr.inputStringValueWithScanner(CITY_DATA, REGEX_CITY));
+        list.add(contr.inputStringValueWithScanner(STREET_DATA, REGEX_STREET));
+        list.add(contr.inputStringValueWithScanner(BUILDING_DATA, REGEX_BUILDING));
+        list.add(contr.inputStringValueWithScanner(APARTMENT_DATA, REGEX_APARTMENT));
+        return list;
+    }
+
+    Scanner getSc() {
         return sc;
     }
 
-    public View getView() {
+    View getView() {
         return view;
     }
 
-    public String getFirstName() {
+    String getFirstName() {
         return firstName;
     }
 
-    public String getLogin() {
+    String getLogin() {
         return login;
     }
 
-    public String getComment() {
+    String getComment() {
         return comment;
     }
 
-    public String getHomePhoneNumber() {
+    String getHomePhoneNumber() {
         return homePhoneNumber;
     }
 
-    public String getMobilePhoneNumber() {
+    String getMobilePhoneNumber() {
         return mobilePhoneNumber;
     }
 
-    public String getSecondMobilePhoneNumber() {
+    String getSecondMobilePhoneNumber() {
         return secondMobilePhoneNumber;
     }
 
-    public String getEmail() {
+    String getEmail() {
         return email;
     }
 
-    public String getSkype() {
+    String getSkype() {
         return skype;
+    }
+
+    public ArrayList<String> getAddress() {
+        return address;
+    }
+
+    LocalDateTime getCreationDate() {
+        return creationDate;
     }
 }

@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Controller {
     private View view;
     private Model model;
-    private NoteBook noteBook;
 
     public Controller(View view, Model model) {
         this.view = view;
@@ -20,9 +19,20 @@ public class Controller {
 
     public void processUser() {
         Scanner sc = new Scanner(System.in);
-        InputNoteNoteBook inputNoteNoteBook =
+        InputNoteNoteBook inputNote =
                 new InputNoteNoteBook(sc, view);
-        inputNoteNoteBook.inputNote();
-        model.addNoteToBook(new Note(inputNoteNoteBook.getFirstName(), inputNoteNoteBook.getLogin(), inputNoteNoteBook.getComment(), inputNoteNoteBook.getHomePhoneNumber(), inputNoteNoteBook.getMobilePhoneNumber(), inputNoteNoteBook.getSecondMobilePhoneNumber(), inputNoteNoteBook.getEmail(), inputNoteNoteBook.getSkype()));
+        inputNote.inputNote();
+        model.addNoteToBook(new Note(
+                inputNote.getFirstName(),
+                inputNote.getLogin(),
+                inputNote.getComment(),
+                inputNote.getHomePhoneNumber(),
+                inputNote.getMobilePhoneNumber(),
+                inputNote.getSecondMobilePhoneNumber(),
+                inputNote.getEmail(),
+                inputNote.getSkype(),
+                inputNote.getAddress(),
+                inputNote.getCreationDate()
+        ));
     }
 }
