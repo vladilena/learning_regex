@@ -63,6 +63,15 @@ class InputNoteNoteBook {
         return list;
     }
 
+    public void inputLogin (){
+        UtilityController utilityController =
+                new UtilityController(sc, view);
+        this.login =
+                utilityController.inputStringValueWithScanner
+                        (LOGIN_DATA, REGEX_LOGIN);
+
+
+    }
     Scanner getSc() {
         return sc;
     }

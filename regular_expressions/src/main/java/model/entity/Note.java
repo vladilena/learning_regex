@@ -18,7 +18,8 @@ public class Note {
     private LocalDateTime creationDate;
     private ArrayList<String> address;
 
-    public Note(String firstName, String login, String comment, String homePhoneNumber, String mobilePhoneNumber, String secondMobilePhoneNumber, String email, String skype, ArrayList<String> address, LocalDateTime creationDate) {
+    public Note(String firstName, String login, String comment, String homePhoneNumber, String mobilePhoneNumber, String secondMobilePhoneNumber, String email, String skype, ArrayList<String> address, LocalDateTime creationDate) throws NotUniqueLoginException {
+        if (EmulatedDB.checkLogin(login)) throw new NotUniqueLoginException("Not unique login", login);
         this.firstName = firstName;
         this.login = login;
         this.comment = comment;

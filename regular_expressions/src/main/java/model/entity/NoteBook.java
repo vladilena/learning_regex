@@ -10,10 +10,6 @@ public class NoteBook {
 
     public void addNote(Note note) {
         noteBook.add(note);
-
-
-        //for check out
-        System.out.println(noteBook);
     }
 
 
